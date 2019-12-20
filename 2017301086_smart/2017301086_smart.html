@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>스마트폰 레이아웃</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, user-scalable=no" />
+    <!-- 초기화 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <!-- 헤더 -->
+    <style>
+        #main_header {
+            /* 배경 지정 */
+            height: 45px;
+            background: url('header_background.png');
+            /* 자손 위치 지정 */
+            position: relative;
+            text-align: center;
+            line-height: 45px;
+        }
+
+            #main_header > h1 {
+                color: white;
+            }
+
+            #main_header > a, #main_header > label {
+                display: block;
+                height: 32px;
+                position: absolute;
+            }
+
+                #main_header > a.left {
+                    width: 62px;
+                    left: 5px;
+                    top: 7px;
+                }
+
+                #main_header > label.right {
+                    width: 32px;
+                    right: 5px;
+                    top: 7px;
+                }
+    </style>
+    <!-- 스프라이트 이미지 -->
+    <style>
+        #main_header > a.left {
+            background: url('sprites.png');
+            background-position: 0px 0px;
+            text-indent: -99999px;
+        }
+
+        #main_header > label.right {
+            background: url('sprites.png');
+            background-position: -62px 0px;
+            text-indent: -99999px;
+        }
+    </style>
+    <!-- 토글 목록 -->
+    <style>
+        /* 토글 구현 */
+        #toggle {
+            display: none;
+        }
+
+            #toggle + #wrap > #toggle_gnb_wrap {
+                display: none;
+            }
+
+            #toggle:checked + #wrap > #toggle_gnb_wrap {
+                display: block;
+            }
+
+        /* 레이아웃 색상 */
+        #toggle_gnb_wrap {
+            background: #363636;
+            padding: 15px;
+        }
+
+        #toggle_gnb {
+            background: #FFFFFF;
+            padding: 5px;
+        }
+
+            /* 토글 목록 */
+            #toggle_gnb > ul {
+                overflow: hidden;
+            }
+
+                #toggle_gnb > ul > li {
+                    width: 80px;
+                    float: left;
+                }
+    </style>
+    <!-- 네비게이션(1) -->
+    <style>
+        #top_gnb {
+            overflow: hidden;
+            border-bottom: 1px solid black;
+            background: #B42111;
+        }
+
+            #top_gnb > div > a {
+                /* 수평 정렬 */
+                float: left;
+                width: 25%;
+                /* 크기 및 색상, 정렬 */
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                color: white;
+            }
+    </style>
+    <!-- 네비게이션(2) -->
+    <style>
+        #bottom_gnb {
+            display: table;
+            width: 100%;
+            border-bottom: 1px solid black;
+        }
+
+            #bottom_gnb > div {
+                display: table-cell;
+                position: relative;
+            }
+
+                #bottom_gnb > div > a {
+                    display: block;
+                    height: 35px;
+                    line-height: 35px;
+                    text-align: center;
+                }
+
+                    #bottom_gnb > div > a::before {
+                        display: block;
+                        position: absolute;
+                        top: 9px;
+                        left: -1px;
+                        width: 1px;
+                        height: 15px;
+                        border-left: 1px solid black;
+                        content: '';
+                    }
+    </style>
+    <!-- 본문 -->
+    <style>
+        #section_header {
+            padding: 20px;
+        }
+
+        #section_article {
+            padding: 10px;
+        }
+    </style>
+    <!-- 푸터 -->
+    <style>
+        #main_footer {
+            padding: 10px;
+            border-top: 3px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input id="toggle" type="checkbox" />
+    <div id="wrap">
+        <header id="main_header">
+            <a class="left" href="#">Main</a>
+            <h1>Inae's mobile</h1>
+            <label class="right" for="toggle" onclick="">Toggle</label>
+        </header>
+        <div id="toggle_gnb_wrap">
+            <div id="toggle_gnb">
+                <ul>
+                    <li><a href="#">코카콜라</a></li>
+                    <li><a href="#">데미소다</a></li>
+                    <li><a href="#">칠성사이다</a></li>
+                    <li><a href="#">환타</a></li>
+                    <li><a href="#">펩시</a></li>
+                    <li><a href="#">갈아먹는 배</a></li>
+                    <li><a href="#">나랑드사이다</a></li>
+                    <li><a href="#">봉봉</a></li>
+                </ul>
+            </div>
+        </div>
+        <nav id="top_gnb">
+            <div><a href="#">이온음료</a></div>
+            <div><a href="#">탄산음료</a></div>
+            <div><a href="#">우유</a></div>
+            <div><a href="#">숙취해소제</a></div>
+        </nav>
+        <nav id="bottom_gnb">
+            <div><a href="#">첫번째</a></div>
+            <div><a href="#">두번째</a></div>
+            <div><a href="#">세번째</a></div>
+            <div><a href="#">네번째</a></div>
+            <div><a href="#">다섯번째</a></div>
+        </nav>
+        <section id="main_section">
+            <header id="section_header">
+                <h1>숙취해소제</h1>
+            </header>
+            <article id="section_article">
+                <p>숙취해소 음료 ‘컨디션’으로 탄탄한 인지도를 자랑하는 CJ헬스케어는 지난달 ‘컨디션 CEO’라는 신제품을 출시했다. 컨디션 레이디에 이어 출시된 컨디션 CEO는 숙취해소에 도움을 주는 성분들을 가득 담아냈다. 가격이 기존 제품보다 2배 이상 비싼 1만원이지만 기존 컨디션 제품과 비교하면 엑기스를 담아냈다는 느낌을 준다. 용량도 기존제품보다 50ml 늘어나 150ml의 양을 자랑한다. 실제로 컨디션 CEO를 섭취해본 이들은 “기존 컨디션 제품이 단순 음료였다면 CEO제품은 걸쭉한 식감에 더해 숙취해소 ‘약’을 먹는다는 느낌을 준다”고 입을 모았다. </p>
+                <br />
+                <p>탁월한 숙취해소 효과를 자랑하는 그래미의 여명 808은 올해 ‘2017 소비자의 선택’ 숙취해소음료 부문에서 대상을 거머쥐었다. 여명 808은 오리나무와 마가목의 잎·줄기·뿌리의 추출물이 주원료로, 개암·박·꿀·대추·생강 등이 들어가 음주 전후에 복용하면 숙취해소에 도움을 준다. 실제로 오리나무는 숙취해소와 알코올 중독에 도움을 주고 간의 기능을 개선하는 것으로 알려져 있다. 마가목 추출물 역시도 쥐를 상대로 한 임상시험에서 혈중 알코올 농도와 아세트알데히드 농도가 현저히 줄어드는 것으로 나타난 바 있다. </p>
+                <br />
+                <p>해태htb는 최근 외국인 고객들을 중심으로 이슈몰이에 성공한 ‘갈아만든 배’를 리뉴얼해 ‘갈아만든 배 by 숙취비책’을 선보였다. 외국인들 사이에서 ‘숙취를 없애주는 매직드링크 IdH(배)’라는 애칭으로 불렸던 갈아만든 배를 아예 숙취해소 음료로 출시한 것이다. 제품에는 표고버섯 균사체와 헛개나무열매 추출 농축액을 주성분으로 하고 여기에 배 퓨레(배를 간 것)를 더했다. </p>
+            </article>
+        </section>
+        <footer id="main_footer">
+            <h3>Hwang Inae</h3>
+            <address>컴퓨터과학과 2017301086</address>
+        </footer>
+    </div>
+</body>
+</html>
